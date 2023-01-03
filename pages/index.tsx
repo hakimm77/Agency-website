@@ -1,8 +1,19 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { Flex, Text } from "@chakra-ui/react";
+import { Header } from "../components/Header";
 
 const LandingPage = () => {
-  return <Text color="red">heybyebe</Text>;
+  return (
+    <Flex
+      w="100%"
+      h="100vh"
+      flexDir="column"
+      alignItems="center"
+      backgroundColor="#d0e4f7"
+    >
+      <Header />
+    </Flex>
+  );
 };
 
 export default LandingPage;
