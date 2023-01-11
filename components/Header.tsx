@@ -1,10 +1,18 @@
-import { Button, Flex, Text } from "@chakra-ui/react";
+import { Button, Flex, Text, useMediaQuery } from "@chakra-ui/react";
 import Image from "next/image";
 
 export const Header = () => {
+  const [isMobile] = useMediaQuery("(max-width: 1400px)");
+
   return (
-    <Flex w="65%" flexDir="column" pt="20px" pb="20px">
-      <Flex cursor="pointer" alignItems="center" mb={40}>
+    <Flex
+      w={isMobile ? "100%" : "65%"}
+      flexDir="column"
+      pt="20px"
+      pb="20px"
+      mb={40}
+    >
+      <Flex cursor="pointer" alignItems="center" mb={40} ml={isMobile ? 20 : 0}>
         <Image
           alt="Hak Dynamics"
           src={require("../assets/logo.png")}
@@ -20,8 +28,13 @@ export const Header = () => {
         </Text>
       </Flex>
 
-      <Flex flexDir="row" justifyContent="space-between">
-        <Flex flexDir="column" w="45%">
+      <Flex
+        flexDir={isMobile ? "column" : "row"}
+        justifyContent="space-between"
+        alignItems="center"
+        w="100%"
+      >
+        <Flex flexDir="column" w={isMobile ? "95%" : "45%"}>
           <Text fontSize={45} color="#15304B" fontWeight="bold" mb={5}>
             Facebook Advertising for car dealerships
           </Text>
@@ -29,7 +42,7 @@ export const Header = () => {
             bgColor="#dd004e"
             color="#fff"
             p="30px"
-            w="50%"
+            maxW={isMobile ? "100%" : "60%"}
             fontSize={23}
             _hover={{ bgColor: "gray" }}
           >
@@ -37,11 +50,13 @@ export const Header = () => {
           </Button>
         </Flex>
 
-        <Image
-          alt="facebook-image"
-          src={require("../assets/fb-image.png")}
-          style={{ width: 600, marginTop: -60 }}
-        />
+        {!isMobile && (
+          <Image
+            alt="facebook-image"
+            src={require("../assets/fb-image.png")}
+            style={{ width: 600, marginTop: -60 }}
+          />
+        )}
       </Flex>
     </Flex>
   );
