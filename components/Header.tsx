@@ -1,5 +1,6 @@
 import { Button, Flex, Text, useMediaQuery } from "@chakra-ui/react";
 import Image from "next/image";
+import { redirectMeeting } from "../helpers/redirectMeeting";
 
 export const Header = () => {
   const [isMobile] = useMediaQuery("(max-width: 1400px)");
@@ -45,6 +46,7 @@ export const Header = () => {
             maxW={isMobile ? "100%" : "60%"}
             fontSize={23}
             _hover={{ bgColor: "gray" }}
+            onClick={redirectMeeting}
           >
             Scale Your Business
           </Button>

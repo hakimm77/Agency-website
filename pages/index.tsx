@@ -4,6 +4,7 @@ import { Header } from "../components/Header";
 import Image from "next/image";
 import { InlineWidget, PopupWidget } from "react-calendly";
 import { Footer } from "../components/Footer";
+import { redirectMeeting } from "../helpers/redirectMeeting";
 
 const LandingPage = () => {
   const [isMobile] = useMediaQuery("(max-width: 1400px)");
@@ -52,6 +53,7 @@ const LandingPage = () => {
           fontSize={23}
           _hover={{ bgColor: "gray" }}
           alignSelf="center"
+          onClick={redirectMeeting}
         >
           Book Free Demo call
         </Button>
@@ -132,6 +134,7 @@ const LandingPage = () => {
           fontSize={23}
           _hover={{ bgColor: "gray" }}
           alignSelf="center"
+          onClick={redirectMeeting}
         >
           Book Free Demo call
         </Button>
